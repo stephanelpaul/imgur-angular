@@ -1,0 +1,12 @@
+<ul>
+	<li ng-repeat="image in images">
+		<img src="{{image.link}}"/>
+	</li>
+</ul>
+
+<pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+ <p>
+  total Items: {{totalItems}}<br />
+  Items per page: {{itemsPerPage}}<br />
+  Current Page: {{currentPage}}
+ </p>

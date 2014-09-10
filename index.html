@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="imgurApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,17 +11,39 @@
     <title>imgur gallery</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
-
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+      body {
+        padding-top: 60px;
+      }
+
+      .paginationclass{ 
+        margin: 19px 28px;    
+        }
+        .paginationclass span{
+            margin-left:15px;
+            display:inline-block;
+        }
+        .pagination-controle li{
+            display: inline-block;
+        }
+        .pagination-controle button{
+            font-size: 12px;
+            margin-top: -26px;
+            cursor:pointer;
+            
+        }
+        .pagination{
+            margin:5px 12px !important;
+        }
+    </style>
   </head>
 
   <body>
@@ -33,14 +55,16 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" ng-view>
 
     </div>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controllers.js"></script>
 
   </body>
 </html>
