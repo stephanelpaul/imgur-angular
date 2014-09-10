@@ -6,14 +6,16 @@ var app = angular.module('imgurApp', [
 	'ui.bootstrap'
 	]);
 
-app.config(function($routeProvider){
+app.config(function($routeProvider, $locationProvider){
 	$routeProvider.when('/', {
-		templateUrl: 'pages/home.html',
+		templateUrl: '/pages/home.html',
 		controller: 'ImageListController'
 	});
 
 	$routeProvider.when('/show/:id', {
-		templateUrl: 'pages/show.html',
+		templateUrl: '/pages/show.html',
 		controller: 'ImageShowController'
 	});
+
+	$locationProvider.html5Mode(true);
 });

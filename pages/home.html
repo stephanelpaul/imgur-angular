@@ -1,12 +1,13 @@
-<ul>
-	<li ng-repeat="image in images">
-		<img src="{{image.link}}"/>
-	</li>
-</ul>
+<div class="container">
+  <div class="row">
+	<div class="col-lg-4 col-sm-5 col-xs-6 thumbnail" ng-repeat="image in filteredImages">
+		<a ng-href="/show/{{image.id}}"><img src="{{image.link}}"/></a>
+		<div class="caption">
+        	<h3>{{image.title}}</h3>
+        	<p ng-if="image.description !== null">{{image.description}}</p>
+      	</div>
+	</div>
+  </div>
+</div>
 
 <pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>
- <p>
-  total Items: {{totalItems}}<br />
-  Items per page: {{itemsPerPage}}<br />
-  Current Page: {{currentPage}}
- </p>

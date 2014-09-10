@@ -12,22 +12,28 @@ controllers.controller('ImageListController', function($scope, $http) {
     $scope.currentPage = 1;
     $scope.maxSize = 5;
 	 
-	$http({method: 'GET', url: 'https://api.imgur.com/3/gallery/random/random/1'}).
-	    success(function(data, status, headers, config) {    
+	$http({method: 'GET', url: 'https://api.imgur.com/3/gallery/random/random/1'})
+		 .success(function(data) {
 	    	$scope.images = data['data']
-
-	    	console.log(data['data']);
 	    	$scope.totalItems = $scope.images.length;
 
 	    	$scope.$watch('currentPage + itemsPerPage', function() {
 	    		var begin = (($scope.currentPage - 1) * $scope.itemsPerPage);
 	    		var end = begin + $scope.itemsPerPage;
+
+	    		$scope.filteredImages = $scope.images.slice(begin, end);
 	    	});
 
-	    	$scope.filteredItems = $scope.images.slice(begin, end);
-	    }).error(function(data, status, headers, config) {});	   
+		});
 });
 
-controllers.controller('ImageShowController', function($scope, $http) {
+controllers.controller('ImageShowController', function($scope, $http, $routeParams) {
+	$http.defaults.headers.common['Authorization'] = 'Client-ID b7ce8f0f08c939f';
 
+	var imageUrl = "https://api.imgur.com/3/image/" + $routeParams.id;
+
+	$http({method: 'GET', url: imageUrl})
+		 .success(function(data) {
+	    	$scope.image = data['data']
+	    });	
 });
