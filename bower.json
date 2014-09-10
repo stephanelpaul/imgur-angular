@@ -1,0 +1,14 @@
+{
+  "name": "imgur-angular",
+  "version": "0.0.1",
+  "ignore": [
+    ".bowerc",
+    ".gitignore",
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+  
+  },
+  "devDependencies": {}
+}
